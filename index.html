@@ -6,20 +6,159 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<link href="style.css" type="text/css" rel="stylesheet"/>
 	<!--[if lte IE 8]>
 	<link href= "iestyle.css" rel= "stylesheet" media="all" />
 	<script>
-	  	var e = ("abbr,article,aside,audio,canvas,datalist,details," +
-	    	"figure,footer,header,hgroup,mark,menu,meter,nav,output," +
-	    	"progress,section,time,video").split(',');
-	  	for (var i = 0; i < e.length; i++) {
-	    	document.createElement(e[i]);
-	 	}
+		var e = ("abbr,article,aside,audio,canvas,datalist,details," +
+			"figure,footer,header,hgroup,mark,menu,meter,nav,output," +
+			"progress,section,time,video").split(',');
+		for (var i = 0; i < e.length; i++) {
+			document.createElement(e[i]);
+		}
 	</script>
 	<![endif]-->
 
+	<script>
+		var users = [];
 
+		users[0] = {
+			name : 'Виктория',
+			image : 'photo1.jpg',
+			online: true,
+			age : '23',
+			zodiak : 'Дева',
+			city : 'Киев',
+			compatibility: '57',
+			info : 'Lorem ipsum Laborum ad sint Excepteur ut eiusmod anim nulla in proident consectetur minim voluptate esse Duis in Excepteur officia.',
+		};
+		users[1] = {
+			name : '2_Виктория',
+			image : 'photo2.jpg',
+			online: true,
+			age : '2_23',
+			zodiak : '2_Дева',
+			city : '2_Киев',
+			compatibility: '22',
+			info : '2_Lorem ipsum Laborum ad sint Excepteur ut eiusmod anim nulla in proident consectetur minim voluptate esse Duis in Excepteur officia.',
+		};
+		users[2] = {
+			name : '3_Виктория',
+			image : 'photo3.jpg',
+			online: false,
+			age : '3_23',
+			zodiak : '3_Дева',
+			city : '3_Киев',
+			compatibility: '90',
+			info : '3_Lorem ipsum Laborum ad sint Excepteur ut eiusmod anim nulla in proident consectetur minim voluptate esse Duis in Excepteur officia.',
+		};
+
+		$(document).ready(function(){
+
+			var currentUser = 0;
+
+			$('.scale_full').css({'height': users[currentUser].compatibility + '%'});
+
+			$('#dislike, #like').click(function(){
+
+				// определяем следующий индекс
+				if (currentUser + 1 < users.length) {
+
+					currentUser += 1;
+				} else {
+
+					currentUser = 0;
+				}
+
+				// меняем проценты совместимости
+				$('.data_percent').fadeOut('slow', function() {$(this).text(users[currentUser].compatibility + '%')}).fadeIn('slow');
+
+				// меняем имя пользователя
+				$('.name').fadeOut('slow', function() {$(this).text(users[currentUser].name +',')}).fadeIn('slow');
+
+				// возраст
+				$('.age').fadeOut('slow', function() {$(this).text(users[currentUser].age)}).fadeIn('slow');
+
+				// знак зодиака
+				$('.zodiak').text(users[currentUser].zodiak);
+
+				// город
+				$('.adress').text(users[currentUser].city);
+
+				// описание
+				$('.desc').text(users[currentUser].info);
+
+				// онлайн
+				if (users[currentUser].online) {
+
+					$('.status').addClass('online');
+				} else {
+
+					$('.status').removeClass('online');
+				}
+
+				// меняем шкалу
+				$('.scale_full').animate({'height' : users[currentUser].compatibility + '%'});
+
+				// меняем фото
+				$('.photo_bg').after('<img src="' + users[currentUser].image + '" alt="'+users[currentUser].name +'" class="photo_bg" />');
+
+				var photo_width = $('.photo_bg').outerWidth();
+
+				$('.photo_bg:first').css({
+					'position' : 'absolute',
+					'top' : '0px',
+					'left' : '0px'
+				}).animate({'left' : -photo_width + 'px'}, function() {
+
+					$(this).remove();
+				});
+
+				$('.photo_bg:last').css({
+					'position' : 'absolute',
+					'top' : '0px',
+					'left' : photo_width
+				}).animate({'left' : '0px'}, function() {
+
+					$(this).css({'position' : 'relative'});
+				});
+			})
+
+			var height_info = $('#info').outerHeight();
+			$('#info').css({'bottom': -height_info +'px'});
+
+			$('#info_ico').click(function() {
+
+				height_info = $('#info').outerHeight();
+
+				if (!$('#info').is(':visible')) {
+
+					$('#info').show().animate({'bottom': '0px'});
+					$('#like, #dislike').css({
+						'position': 'relative',
+						'bottom': '0px'
+					}).animate({'bottom': (height_info - 20) + 'px'});
+				}
+			})
+
+			$('body').click(function(e) {
+
+				var clicked = e.target;
+
+				if ($(clicked).parents('#info').length == 0 && $(clicked).attr('id') != 'info_ico' && $(clicked).attr('id') != 'info') {
+
+					$('#info').animate({'bottom': -height_info +'px'}, function() {
+						$(this).hide();
+					});
+
+					$('#like, #dislike').animate({'bottom': '0px'}, function() {
+						$(this).css({'position': 'static'});
+					});
+				}
+			})
+		})
+	</script>
 
 </head>
 <body>
@@ -27,21 +166,55 @@
 <div class="container">
 	<header>
 		<nav class="clearfix">
-    		<ul class="clearfix">
-		        <li><a href="#">Home</a></li>
-		        <li><a href="#">How-to</a></li>
-		        <li><a href="#">Icons</a></li>
-		        <li><a href="#">Design</a></li>
-		        <li><a href="#">Web 2.0</a></li>
-		        <li><a href="#">Tools</a></li>
-		    </ul>
-    		<a href="#" id="pull">Menu</a>
+			<div class="nav_head clearfix">
+				<img src="user.jpg" alt="" class="photo circle left">
+				<p class="left">
+					<span class="name">Ростислав</span>
+					<span class="adress">Днепропетровск</span>
+				</p>
+				<a href="" class="settings right"></a>
+			</div>
+	    		<ul class="clearfix">
+			        <li><a href="#">Home</a></li>
+			        <li><a href="#">How-to</a></li>
+			        <li><a href="#">Icons</a></li>
+			        <li><a href="#">Design</a></li>
+			        <li><a href="#">Web 2.0</a></li>
+			        <li><a href="#">Tools</a></li>
+			    </ul>
+			<a href="" class="premium">Получить премиум</a>
+	    	<a href="" id="pull_down"></a>
 		</nav>
-		<a href="#" id="pull"></a>
-
+		<a href="#" id="pull" class="left"></a>
+		<h1 class="title_heading left">Совпадения</h1>
+		<div class="message right"><span class="indicator circle">12</span></div>
 	</header>
-	<img src="photo1.jpg" alt="Photo 1">
+
+	<img src="photo1.jpg" alt="Photo 1" class="photo_bg" />
+
+	<div class="scale_container">
+		<span class="data_percent">57%</span>
+		<div class="scale">
+			<div class="scale_full"></div>
+		</div>
+	</div>
+	<div class="info_prev clearfix">
+		<span class="name">Виктория,</span> <span class="age">23</span> <span class="status online circle"></span>
+	</div>
+	<footer>
+		<a href="#" id="info_ico" title="info"></a>
+		<a href="#" id="like" title="like"></a>
+		<a href="#" id="dislike" title="dislike"></a>
+		<a href="#" id="favorite" title="favorite"></a>
+	</footer>
+	<div id="info">
+		<p class="clearfix"><span class="name left">Виктория</span> <span class="compatibility right">Совместимость: <span class="data_percent">57%</span></span></p>
+		<p class="clearfix"><span class="age">23</span> , <span class="zodiak">Дева</span></p>
+		<p class="adress">Киев</p>
+		<p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	</div>
 </div>
 
 </body>
 </html>
+

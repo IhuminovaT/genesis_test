@@ -1,5 +1,11 @@
-header {
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#708E4764',endColorstr='#70873555',GradientType=0 );
-	zoom: 1;
+.circle{
+	behavior: url(border-radius.htc);
 }
 
+#like, #dislike {
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#37542a4f', endColorstr='#37542a4f',GradientType=1 );
+}
+
+footer {
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#39542a4f', endColorstr='#39542a4f',GradientType=1 );
+}
