@@ -15,7 +15,7 @@ footer {
 }
 
 .online {
-	background: url('online_indicator.png') no-repeat center center;
+	background: url('../images/online_indicator.png') no-repeat center center;
 }
 
 nav ul li:first-child + li + li + li + li + li + li + li > a {
@@ -27,12 +27,12 @@ nav ul {
 }
 
 .premium {
-	background: url('premium_button.png') no-repeat;
+	background: url('../images/premium_button.png') no-repeat;
 	border: none;
 }
 
 .premium > span {
-	background:url('star.png') no-repeat 32px 7px;
+	background:url('../images/star.png') no-repeat 32px 7px;
 	display: block;
 	width: 100%;
 }
@@ -41,6 +41,6 @@ nav ul {
 }
 
 #pull_down {
-	background: url('pull_down_ie.png') no-repeat 0 0;
+	background: url('../images/pull_down_ie.png') no-repeat 0 0;
 }
 
