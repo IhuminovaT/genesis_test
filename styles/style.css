@@ -301,7 +301,7 @@ nav ul li:first-child + li + li {
 }
 
 nav ul li:first-child + li + li + li{
-	background: url('nav_sprite.png') no-repeat 0px -142px;
+	background: url('../images/nav_sprite.png') no-repeat 0px -142px;
 }
 
 nav ul li:first-child + li + li + li + li{
