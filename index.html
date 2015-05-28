@@ -17,6 +17,7 @@
 		for (var i = 0; i < e.length; i++) {
 			document.createElement(e[i]);
 		}
+
 	</script>
 	<![endif]-->
 
@@ -34,24 +35,54 @@
 			info : 'Lorem ipsum Laborum ad sint Excepteur ut eiusmod anim nulla in proident consectetur minim voluptate esse Duis in Excepteur officia.',
 		};
 		users[1] = {
-			name : '2_Виктория',
+			name : 'Елизаветта',
 			image : 'photo2.jpg',
 			online: true,
-			age : '2_23',
-			zodiak : '2_Дева',
-			city : '2_Киев',
-			compatibility: '22',
-			info : '2_Lorem ipsum Laborum ad sint Excepteur ut eiusmod anim nulla in proident consectetur minim voluptate esse Duis in Excepteur officia.',
+			age : '18',
+			zodiak : 'Рак',
+			city : 'Донецк',
+			compatibility: '13',
+			info : 'Lorem ipsum Laborum ad sint Excepteur.',
 		};
 		users[2] = {
-			name : '3_Виктория',
+			name : 'Анна',
 			image : 'photo3.jpg',
 			online: false,
-			age : '3_23',
-			zodiak : '3_Дева',
-			city : '3_Киев',
+			age : '26',
+			zodiak : 'Весы',
+			city : 'Львов',
+			compatibility: '75',
+			info : 'Lorem ipsum Laborum ad sint Excepteur ut eiusmod anim nulla in proident consectetur minim voluptate esse Duis in Excepteur officia. Lorem ipsum Laborum ad sint Excepteur.',
+		};
+		users[3] = {
+			name : 'Дмитрий',
+			image : 'photo4.jpg',
+			online: true,
+			age : '28',
+			zodiak : 'Скорпион',
+			city : 'Киев',
+			compatibility: '4',
+			info : 'Lorem ipsum Laborum ad sint Excepteur ut eiusmod anim nulla in proident consectetur minim voluptate esse Duis in Excepteur officia.',
+		};
+		users[4] = {
+			name : 'Олег',
+			image : 'photo5.jpg',
+			online: true,
+			age : '20',
+			zodiak : 'Лев',
+			city : 'Днепропетровск',
+			compatibility: '21',
+			info : 'Lorem ipsum Laborum ad sint Excepteur ut eiusmod anim nulla in proident consectetur minim voluptate.',
+		};
+		users[5] = {
+			name : 'Екатерина',
+			image : 'photo6.jpg',
+			online: false,
+			age : '19',
+			zodiak : 'Овен',
+			city : 'Киев',
 			compatibility: '90',
-			info : '3_Lorem ipsum Laborum ad sint Excepteur ut eiusmod anim nulla in proident consectetur minim voluptate esse Duis in Excepteur officia.',
+			info : 'Lorem ipsum Laborum ad sint Excepteur ut eiusmod anim nulla in proident consectetur minim voluptate esse Duis in Excepteur officia.',
 		};
 
 		$(document).ready(function(){
@@ -157,6 +188,29 @@
 					});
 				}
 			})
+
+			$('#pull_down, .mat_glass').click(function() {
+
+				if ($('nav').is(':visible')) {
+
+					$('nav').animate({'left' : '-320px'}, function() {
+							$(this).hide();
+					});
+					$('.heading').removeClass('blur');
+					$('.mat_glass').removeClass('blur');
+				}
+			});
+
+			$('#pull').click(function() {
+
+				if (!$('nav').is(':visible')) {
+
+					$('nav').show().animate({'left' : '0'});
+					$('.heading').addClass('blur');
+					$('.mat_glass').addClass('blur');
+				}
+			});
+
 		})
 	</script>
 
@@ -167,51 +221,57 @@
 	<header>
 		<nav class="clearfix">
 			<div class="nav_head clearfix">
-				<img src="user.jpg" alt="" class="photo circle left">
+				<img src="user.png" alt="" class="photo left">
 				<p class="left">
-					<span class="name">Ростислав</span>
-					<span class="adress">Днепропетровск</span>
+					<span class="use_name">Ростислав</span>
+					<span class="user_adress">Днепропетровск</span>
 				</p>
-				<a href="" class="settings right"></a>
+				<a href="#" class="settings right"></a>
 			</div>
-	    		<ul class="clearfix">
-			        <li><a href="#">Home</a></li>
-			        <li><a href="#">How-to</a></li>
-			        <li><a href="#">Icons</a></li>
-			        <li><a href="#">Design</a></li>
-			        <li><a href="#">Web 2.0</a></li>
-			        <li><a href="#">Tools</a></li>
-			    </ul>
-			<a href="" class="premium">Получить премиум</a>
-	    	<a href="" id="pull_down"></a>
+	    	<ul class="clearfix">
+			    <li><a href="#">Сообщения</a></li>
+			    <li><a href="#">Мне подходят</a></li>
+			    <li><a href="#">Мои гости</a></li>
+			    <li><a href="#">Я нравлюсь</a></li>
+			    <li><a href="#">Мне понравились</a></li>
+			    <li><a href="#">Мои совпадения</a></li>
+			    <li><a href="#">Избранные</a></li>
+			    <li><a href="#">Заблокированные</a></li>
+			</ul>
+			<a href="#" class="premium"><span>Получить премиум</span></a>
+	    	<a href="#" id="pull_down"></a>
 		</nav>
-		<a href="#" id="pull" class="left"></a>
-		<h1 class="title_heading left">Совпадения</h1>
-		<div class="message right"><span class="indicator circle">12</span></div>
-	</header>
-
-	<img src="photo1.jpg" alt="Photo 1" class="photo_bg" />
-
-	<div class="scale_container">
-		<span class="data_percent">57%</span>
-		<div class="scale">
-			<div class="scale_full"></div>
+		<div class="heading gradient_heading">
+			<a href="#" id="pull" class="left"></a>
+			<h1 class="title_heading left">Совпадения</h1>
+			<div class="message right"><span class="indicator circle">12</span></div>
 		</div>
-	</div>
-	<div class="info_prev clearfix">
-		<span class="name">Виктория,</span> <span class="age">23</span> <span class="status online circle"></span>
-	</div>
-	<footer>
-		<a href="#" id="info_ico" title="info"></a>
-		<a href="#" id="like" title="like"></a>
-		<a href="#" id="dislike" title="dislike"></a>
-		<a href="#" id="favorite" title="favorite"></a>
-	</footer>
-	<div id="info">
-		<p class="clearfix"><span class="name left">Виктория</span> <span class="compatibility right">Совместимость: <span class="data_percent">57%</span></span></p>
-		<p class="clearfix"><span class="age">23</span> , <span class="zodiak">Дева</span></p>
-		<p class="adress">Киев</p>
-		<p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	</header>
+	<div class="mat_glass">
+
+		<img src="photo1.jpg" alt="Photo 1" class="photo_bg" />
+
+		<div class="scale_container">
+			<span class="data_percent">57%</span>
+			<div class="scale">
+				<div class="scale_full"></div>
+			</div>
+		</div>
+		<div class="info_prev clearfix">
+			<span class="name">Виктория,</span> <span class="age">23</span> <span class="status online circle2"></span>
+		</div>
+		<footer>
+			<a href="#" id="info_ico" title="info"></a>
+			<a href="#" id="like" title="like"></a>
+			<a href="#" id="dislike" title="dislike"></a>
+			<a href="#" id="favorite" title="favorite"></a>
+		</footer>
+		<div id="info">
+			<p class="clearfix"><span class="name left">Виктория</span> <span class="compatibility right">Совместимость: <span class="data_percent">57%</span></span></p>
+			<p class="clearfix"><span class="age">23</span> , <span class="zodiak">Дева</span></p>
+			<p class="adress">Киев</p>
+			<p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
 	</div>
 </div>
 
