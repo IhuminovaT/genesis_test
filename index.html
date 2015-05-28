@@ -19,8 +19,12 @@
 		}
 
 	</script>
-	<![endif]-->
 
+
+	<![endif]-->
+	<!--[if IE 9]>
+	<link href= "lteie9.css" rel= "stylesheet" media="all" />
+	<![endif]-->
 	<script>
 		var users = [];
 
@@ -196,8 +200,7 @@
 					$('nav').animate({'left' : '-320px'}, function() {
 							$(this).hide();
 					});
-					$('.heading').removeClass('blur');
-					$('.mat_glass').removeClass('blur');
+					$('.heading, .mat_glass, footer, .scale_container, .scale, .photo_bg').removeClass('blur');
 				}
 			});
 
@@ -206,8 +209,7 @@
 				if (!$('nav').is(':visible')) {
 
 					$('nav').show().animate({'left' : '0'});
-					$('.heading').addClass('blur');
-					$('.mat_glass').addClass('blur');
+					$('.heading, .mat_glass, footer, .scale_container, .scale, .photo_bg').addClass('blur');
 				}
 			});
 
@@ -272,6 +274,14 @@
 			<p class="adress">Киев</p>
 			<p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 		</div>
+
+	<svg xmlns="http://www.w3.org/2000/svg"  version="1.1">
+	<defs>
+	<filter id="blured">
+	<feGaussianBlur stdDeviation="5"/>
+	</filter>
+	</defs>
+	</svg>
 	</div>
 </div>
 

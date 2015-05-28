@@ -1,0 +1,7 @@
+.blur {
+	filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=5);
+}
+
+.gradient_heading {
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8a9425f', endColorstr='#b8c66673',GradientType=1 );
+}

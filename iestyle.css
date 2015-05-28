@@ -1,9 +1,5 @@
 .blur {
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8a9425f', endColorstr='#b8c66673',GradientType=1 );
-}
-
-.mat_glass.blur {
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40ffffff', endColorstr='#40ffffff',GradientType=1);
+	filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=5);
 }
 
 .circle{

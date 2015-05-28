@@ -75,7 +75,7 @@ body {
 	background-image: -o-linear-gradient(left,  rgba(169,66,95,0.6) 0%,rgba(198,102,115,0.6) 100%);
 	background-image: -ms-linear-gradient( 0deg, rgba(169,66,95,0.6) 0%, rgba(198,102,115,0.6) 100%);
 	background-image: linear-gradient(to right,  rgba(169,66,95,0.6) 0%,rgba(198,102,115,0.6) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8a9425f', endColorstr='#b8c66673',GradientType=1 );
+
 }
 #pull, .message {
 	display: inline-block;
@@ -105,7 +105,7 @@ body {
 	}
 
 .info_prev {
-	font: normal 24px/2.2 "Helvetica";
+	font: normal 24px/1.7 "Helvetica";
 	text-align: left;
 	left: 9px;
 	bottom: 99px;
@@ -114,8 +114,8 @@ body {
 .status {
 	display: block;
   	position: absolute;
-	top: 12px;
-	right: -10px;
+	top: 9px;
+	right: -8px;
 }
 
 .online {
@@ -150,12 +150,12 @@ footer > a {
 
 #like {
 	background-image: url('like.png');
-	background-position: left center;
+	background-position: -3px center;
 }
 
 #dislike {
 	background-image: url('like.png');
-	background-position: 88px center;
+	background-position: 84px center;
 }
 
 #info_ico {
@@ -174,11 +174,11 @@ footer > a {
 	position: absolute;
 	right: 0;
 	bottom: 99px;
-	height: 260px;
-	width: 80px;
+	height: 253px;
+	width: 75px;
 	text-align: center;
-	text-indent: 20px;
-	background: url('heart_ico.png') no-repeat 13px bottom;
+	text-indent: 30px;
+	background: url('heart_ico.png') no-repeat 13px 196px;
 }
 
 .scale {
@@ -365,9 +365,10 @@ nav ul li:first-child + li + li + li + li + li + li + li{
 }
 
 .blur {
+-webkit-filter: url('#blured');
   -webkit-filter: blur(5px);
      -moz-filter: blur(5px);
        -o-filter: blur(5px);
       -ms-filter: blur(5px);
-          filter: blur(5px);
 }
+
